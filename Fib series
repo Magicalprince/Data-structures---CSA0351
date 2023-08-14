@@ -1,0 +1,22 @@
+#include<stdio.h>
+int main(){
+int f1,f2,f3,n,i,sum=0;
+printf("Enter the total number of series elements : ");
+scanf("%d",&n);
+printf("Enter the 1st ele : ");
+scanf("%d",&f1);
+printf("Enter the 2st ele : ");
+scanf("%d",&f2);
+printf("The fibonacci series are : ");
+printf(" %d,%d", f1,f2);
+sum=f1+f2;
+for(i=0;i<n;i++)
+{
+ f3=f1+f2;
+ f1=f2;
+ f2=f3;
+ sum=sum+f3;
+printf(",%d", f3);
+}
+printf("The sum is %d", sum);
+}
