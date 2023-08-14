@@ -3,19 +3,16 @@
 
 #define MAX_NODES 100
 
-// Structure to represent a node in the adjacency list
 typedef struct Node {
     int value;
     struct Node* next;
 } Node;
 
-// Structure to represent the adjacency list
 typedef struct Graph {
     int numNodes;
     Node* adjList[MAX_NODES];
 } Graph;
 
-// Function to create a new node
 Node* createNode(int value) {
     Node* newNode = (Node*)malloc(sizeof(Node));
     newNode->value = value;
@@ -23,14 +20,12 @@ Node* createNode(int value) {
     return newNode;
 }
 
-// Function to add an edge to the adjacency list
 void addEdge(Graph* graph, int src, int dest) {
     Node* newNode = createNode(dest);
     newNode->next = graph->adjList[src];
     graph->adjList[src] = newNode;
 }
 
-// Function to perform BFS traversal
 void bfs(Graph* graph, int startNode) {
     int visited[MAX_NODES] = {0};
     int queue[MAX_NODES];
@@ -71,3 +66,14 @@ int main() {
         int src, dest;
         scanf("%d %d", &src, &dest);
         addEdge(graph, src, dest);
+}
+
+    int startNode;
+    printf("Enter the starting node for BFS: ");
+    scanf("%d", &startNode);
+
+    printf("BFS traversal starting from node %d: ", startNode);
+    bfs(graph, startNode);
+
+    return 0;
+}
